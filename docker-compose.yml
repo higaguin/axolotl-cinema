@@ -5,12 +5,20 @@ services:
     ports:
       - '5432:5432'
   api:
+    restart: always
     build: 
       dockerfile: Dockerfile.dev
       context: ./server
     volumes:
       - /app/node_modules
       - ./server:/app
+    command: >
+      sh -c "node_modules/.bin/sequelize db:migrate:undo:all &&
+             node_modules/.bin/sequelize db:migrate &&
+             node_modules/.bin/sequelize db:seed:all &&
+             npm run dev"
+    depends_on: 
+      - postgres
   client:
     build:
       dockerfile: Dockerfile.dev
@@ -18,6 +26,8 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
+    depends_on: 
+      - api
   nginx:
     restart: always
     build: 
