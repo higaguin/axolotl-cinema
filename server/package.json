@@ -4,7 +4,10 @@
         "nodemon": "^1.19.1",
         "pg": "^7.12.0",
         "sequelize": "^5.13.1",
-        "apollo-fetch": "*"
+        "apollo-fetch": "*",
+        "graphql": "*",
+        "express-graphql": "*",
+        "body-parser": "*"
     },
     "scripts": {
         "dev": "nodemon --legacy-watch",

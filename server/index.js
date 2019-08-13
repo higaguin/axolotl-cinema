@@ -1,6 +1,16 @@
 const express = require('express');
 // const db = require('./models/index');
+const expressGraphQL = require('express-graphql');
+const bodyParser = require('body-parser');
+const schema = require('./schema/schema');
+
 const app = express();
+
+app.use(bodyParser.json());
+app.use('/graphql', expressGraphQL({
+  schema,
+  graphiql: true
+}));
 
 // const { Pool } = require('pg');
 
