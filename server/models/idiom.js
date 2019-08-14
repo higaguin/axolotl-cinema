@@ -1,10 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Idiom = sequelize.define('Idiom', {
+  const idiom = sequelize.define('idiom', {
     idiom_name: DataTypes.STRING
-  }, {});
-  Idiom.associate = function(models) {
-    // associations can be defined here
+  }, {
+    timestamps: false
+  });
+  idiom.associate = function(models) {
+    
   };
-  return Idiom;
+  return idiom;
 };
