@@ -16,7 +16,7 @@ module.exports = {
       return res.data.languages.filter(idiom => idiom.idiom_name != null);
     })
     .then(languages => {
-      return queryInterface.bulkInsert('Idioms', languages);
+      return queryInterface.bulkInsert('idioms', languages);
     });
   },
 

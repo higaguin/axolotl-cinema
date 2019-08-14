@@ -15,7 +15,7 @@ module.exports = {
         } 
       }`,
     }).then(res => {
-      return queryInterface.bulkInsert('Countries', res.data.countries);
+      return queryInterface.bulkInsert('countries', res.data.countries);
     });
   },
 

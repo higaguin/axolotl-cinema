@@ -15,7 +15,7 @@ module.exports = {
       }
     ];
 
-    return queryInterface.bulkInsert('States', states);
+    return queryInterface.bulkInsert('states', states);
   },
 
   down: (queryInterface, Sequelize) => {

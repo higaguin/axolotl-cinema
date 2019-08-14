@@ -1,13 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Country = sequelize.define('Country', {
+  const country = sequelize.define('country', {
     country_name: DataTypes.STRING,
     iso: DataTypes.STRING
   }, {
     timestamps: false
   });
-  Country.associate = function(models) {
+  country.associate = function(models) {
     // associations can be defined here
   };
-  return Country;
+  return country;
 };

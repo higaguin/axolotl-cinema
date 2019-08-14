@@ -2,21 +2,19 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('idioms', {
+    return queryInterface.createTable('titles', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      idiom_name: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('idioms');
+    return queryInterface.dropTable('titles');
   }
 };

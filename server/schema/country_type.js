@@ -1,4 +1,5 @@
 const graphql = require('graphql');
+const db = require('../models');
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
 
 const CountryType = new GraphQLObjectType({
