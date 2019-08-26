@@ -13,6 +13,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      in_system: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN
+      },
     });
   },
 

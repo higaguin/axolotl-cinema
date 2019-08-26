@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false
   });
   country.associate = function(models) {
+    models.country.hasMany(models.state, { foreignKey: 'country_id' });
     // associations can be defined here
   };
   return country;

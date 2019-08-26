@@ -2,29 +2,37 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('movies', {
+    return queryInterface.createTable('movie_genre', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title_id: {
+      movie_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-            model: 'titles',
+            model: 'movies',
             key: 'id'
         },
         onUpdate: 'cascade',
         onDelete: 'cascade'
       },
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE
+      genre_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+            model: 'genres',
+            key: 'id'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
+      },
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('movies');
+    return queryInterface.dropTable('movie_genre');
   }
 };

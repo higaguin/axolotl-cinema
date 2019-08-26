@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false
   });
   state.associate = function(models) {
-    // state.hasOne(models.country, { foreignKey: 'country_id' });
+    models.state.belongsTo(models.country, { foreignKey: 'country_id' });
     // models.State.hasOne(models.Country);
   };
   return state;

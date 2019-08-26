@@ -1,17 +1,18 @@
 'use strict';
+const db = require('../models');
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
     const states = [
       {
         "state_name": "Ciudad de México",
         "iso": "CMX",
-        "country_id": "157"
+        "country_id": await db.country.findOne({ where: {iso: 'MX'} }).then(country => country.id)
       },
       {
         "state_name": "Querétaro",
         "iso": "QUE",
-        "country_id": "157"
+        "country_id": await db.country.findOne({ where: {iso: 'MX'} }).then(country => country.id)
       }
     ];
 

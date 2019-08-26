@@ -2,24 +2,22 @@ const graphql = require('graphql');
 const db = require('../models');
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
 
-const TitleIdiomType = new GraphQLObjectType({
-    name: 'TitleIdiomType',
-    fields: () => ({
-      id: { type: GraphQLID },
-      title_name: { type: GraphQLString }
-    })
-  });
-
 const TitleType = new GraphQLObjectType({
     name: 'TitleType',
     fields: () => ({
       id: { type: GraphQLID },
       original_name: { type: GraphQLString },
-      translates: {
-        type: new GraphQLList(TitleIdiomType),
-        resolve(parentValue) {
-            return parentValue.getTitle_idioms();
-        //   return db.country.findByPk(parentValue.country_id).then(country => country);
+      // translates: {
+      //   type: new GraphQLList(require('./title_idiom_type')),
+      //   resolve(parentValue) {
+      //       return parentValue.getTitle_idioms();
+      //   }
+      // },
+      translated: {
+        type: require('./title_idiom_type'),
+        args: { idiom_id: { type: GraphQLID } },
+        resolve(parentValue, { idiom_id }) {
+          return db.title_idiom.findOne({ where: { title_id: parentValue.id, idiom_id } });
         }
       }
     })
