@@ -3,4 +3,5 @@ WORKDIR "/app"
 COPY ./package.json ./
 RUN npm install
 COPY . .
-CMD ["npm", "run", "start"]
+RUN node_modules/.bin/sequelize db:migrate
+CMD ["npm", "run", "migrate-and-start"]
