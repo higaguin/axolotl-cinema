@@ -24,6 +24,7 @@ deploy:
   script:
     docker push higaguin/axolotl-client;
     docker push registry.heroku.com/$HEROKU_APP_CLIENT_NAME/web;
+    heroku container:release web --app $HEROKU_APP_CLIENT_NAME;
     docker push higaguin/axolotl-server;
     docker push registry.heroku.com/$HEROKU_APP_SERVER_NAME/web;
     docker push higaguin/axolotl-nginx;
