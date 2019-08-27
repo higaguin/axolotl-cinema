@@ -6,6 +6,8 @@ const fetch = createApolloFetch({
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    const idiom_in_system = [ 'Spanish', 'English' ];
+
     return fetch({
       query: `{ 
         languages { 
@@ -14,6 +16,8 @@ module.exports = {
       }`,
     }).then(res => {
       return res.data.languages.filter(idiom => idiom.idiom_name != null);
+    }).then(languages => {
+      return languages.map(idiom => { return { idiom_name: idiom.idiom_name, in_system: idiom_in_system.some(idiomx => idiom.idiom_name == idiomx) } });
     })
     .then(languages => {
       return queryInterface.bulkInsert('idioms', languages);

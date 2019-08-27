@@ -1,0 +1,2 @@
+export const SEARCH_THEATER = 'SEARCH_THEATER';
+export const CHANGE_IDIOM = 'CHANGE_IDIOM';

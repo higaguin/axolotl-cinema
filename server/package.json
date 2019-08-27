@@ -7,7 +7,8 @@
         "apollo-fetch": "*",
         "graphql": "*",
         "express-graphql": "*",
-        "body-parser": "*"
+        "body-parser": "*",
+        "graphql-iso-date": "^3.6.1"
     },
     "scripts": {
         "dev": "nodemon --legacy-watch",

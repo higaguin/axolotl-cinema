@@ -6,7 +6,7 @@ const StateType = new GraphQLObjectType({
     name: 'StateType',
     fields: () => ({
       id: { type: GraphQLID },
-      state_name: { type: GraphQLString },
+      state_name: { type: GraphQLString, },
       iso: { type: GraphQLString },
       country: {
         type: require('./country_type'),

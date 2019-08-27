@@ -2,9 +2,19 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('movies', [{
-      "title_id": "1"
-    }])
+    const hall_types = [
+      {
+        "type_name": "Normal"
+      },
+      {
+        "type_name": "IMAX"
+      },
+      {
+        "type_name": "3D"
+      }
+    ];
+
+    return queryInterface.bulkInsert('hall_types', hall_types)
   },
 
   down: (queryInterface, Sequelize) => {
