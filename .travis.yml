@@ -7,3 +7,12 @@ before_install:
   
 script:
   - docker run -e CI=true higaguin/react-test npm test
+
+after_success:
+  - docker build -t higaguin/axolotl-client ./client
+  - docker build -t higaguin/axolotl-nginx ./nginx
+  - docker build -t higaguin/axolotl-server ./server
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push higaguin/axolotl-client
+  - docker push higaguin/axolotl-nginx
+  - docker push higaguin/axolotl-server
