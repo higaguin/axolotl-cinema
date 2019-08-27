@@ -18,7 +18,7 @@ after_success:
   - docker tag higaguin/axolotl-client registry.heroku.com/$HEROKU_APP_CLIENT_NAME/web
   # - docker push higaguin/axolotl-client
   # - docker push higaguin/axolotl-nginx
-  # - docker push higaguin/axolotl-server
+  # - docker push higaguin/axolotl-server 
 
 deploy:
   provider: script
