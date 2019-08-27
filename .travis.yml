@@ -27,6 +27,6 @@ deploy:
   script:
     docker push higaguin/axolotl-client;
     docker push registry.heroku.com/$HEROKU_APP_CLIENT_NAME/web;
-    heroku container:release web -a
+    heroku container:release web --app $HEROKU_APP_CLIENT_NAME;
   on:
     branch: master
