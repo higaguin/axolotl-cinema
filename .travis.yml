@@ -14,7 +14,8 @@ after_success:
   - docker build -t higaguin/axolotl-nginx ./nginx
   - docker build -t higaguin/axolotl-server ./server
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - echo "$HEROKU_KEY" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+  - docker login -u _ -p $HEROKU_KEY registry.heroku.com;
+  # - echo "$HEROKU_KEY" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
   - docker tag higaguin/axolotl-client registry.heroku.com/$HEROKU_APP_CLIENT_NAME/web
   # - docker push higaguin/axolotl-client
   # - docker push higaguin/axolotl-nginx
@@ -25,7 +26,6 @@ deploy:
   script:
     docker push higaguin/axolotl-client;
     docker push registry.heroku.com/$HEROKU_APP_CLIENT_NAME/web;
-    echo "$HEROKU_KEY" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com;
     heroku container:release web --app $HEROKU_APP_CLIENT_NAME
   on:
     branch: master
