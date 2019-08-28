@@ -5,6 +5,13 @@ services:
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   - docker build -t higaguin/react-test -f ./client/Dockerfile.dev ./client
+
+env:
+  - NODE_ENV=production
+  - POSTGRES_USER=$POSTGRES_USER
+  - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+  - POSTGRES_HOST=$POSTGRES_HOST
+  - POSTGRES_DATABASE=$POSTGRES_DATABASE
   
 script:
   - docker run -e CI=true higaguin/react-test npm test
