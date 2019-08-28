@@ -12,7 +12,7 @@
     },
     "scripts": {
         "migrate-and-dev": "node_modules/.bin/sequelize db:migrate:undo:all && node_modules/.bin/sequelize db:migrate && node_modules/.bin/sequelize db:seed:all && npm run dev",
-        "migrate-and-start": "node_modules/.bin/sequelize db:migrate:undo:all && node_modules/.bin/sequelize db:migrate && node_modules/.bin/sequelize db:seed:all && npm start",
+        "migrate-and-start": "node_modules/.bin/sequelize db:migrate && npm start",
         "dev": "nodemon --legacy-watch",
         "start": "node index.js"
     },
