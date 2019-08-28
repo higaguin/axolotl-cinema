@@ -5,4 +5,4 @@ import searchReducer from './searchReducer';
 export default combineReducers({
     form: formReducer,
     search: searchReducer
-});
+}); 
