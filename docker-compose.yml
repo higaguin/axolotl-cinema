@@ -12,11 +12,11 @@ services:
     volumes:
       - /app/node_modules
       - ./server:/app
-    command: >
-      sh -c "node_modules/.bin/sequelize db:migrate:undo:all &&
-             node_modules/.bin/sequelize db:migrate &&
-             node_modules/.bin/sequelize db:seed:all &&
-             npm run dev"
+    # command: >
+    #   sh -c "node_modules/.bin/sequelize db:migrate:undo:all &&
+    #          node_modules/.bin/sequelize db:migrate &&
+    #          node_modules/.bin/sequelize db:seed:all &&
+    #          npm run dev"
     depends_on: 
       - postgres
   client:
