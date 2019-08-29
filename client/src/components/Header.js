@@ -8,7 +8,7 @@ import { searchTheater } from '../actions';
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
-    state = {}
+    state = { selected_state: "" }
     
     render() {
         const { selected_state, selected_theater } = this.state;
