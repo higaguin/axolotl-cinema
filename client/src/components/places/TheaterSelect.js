@@ -24,4 +24,4 @@ class Theater extends React.Component {
     }
 }
 
-export default graphql(query, { options: props => { return { variables: { iso: props.selected_state } } } })(Theater);
+export default graphql(query, { options: props => { console.log(props); return { variables: { iso: props.selected_state } } } })(Theater);
